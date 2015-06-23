@@ -1,0 +1,31 @@
+body {
+	font-family: tahoma;
+	font-size: 0.8em;
+	
+	background-color: #fff;
+	margin:auto;
+	width: 90%;
+}
+p{
+	color:black;
+	width:200px;
+	float:left;
+	border:1px solid black;
+	margin : black 5px;
+	text-align: justify;
+	background-color:#CCC;
+	border-radius: 15px;
+	padding: 5px;
+
+}
+ul{
+
+	background-color: #cc00ff;
+	width:100px;
+
+}
+
+li{
+	border: 1px solid black;
+
+}
