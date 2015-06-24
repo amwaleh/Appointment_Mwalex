@@ -3,51 +3,49 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+     <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
-
-<head>
-        
-    </head>
-</head>
       
-    </head>
-    <body >
+</head>
+<body >
     <div id="show" > text</div>
-<div class="form">
-    <img id='img' src="https://www.firebase.com/images/logo.png"></img>
-    
-    <input type="button" name="button" id="button" value="save" onClick="setAppointment();"><table width="375" height="228" border="0">
+     <div class="form">
+      <img id='img' src="https://www.firebase.com/images/logo.png"></img>
+        <input type="button" name="button" id="button" value="save" onClick="setAppointment();">
 
-  <caption>
-    Things To do
-  </caption>
+<table width="375" height="228" border="0">
+ <caption>Things To do</caption>
+
   <tbody>
     <tr>
       <td >Date</td>
-      <td >
+      <td >        
         <input id="appdate" name="appdate" min="31-12-2014" max="01-01-2025" type="date" value='2015-06-01'> 
         <input type="button" name="button" id="button" value="check" onClick="getAppointment();"><table width="375" height="228" border="0">
-
       </td>
     </tr>
+
     <tr>
       <td>Title</td>
       <td><input name="title" type="input" id="title" value="title" ></td>
     </tr>
+
     <tr>
       <td>Task </td>
       <td><TextArea cols='50' rows='20' id="task" name="task" value='monday'>task</textarea></td>
     </tr>
+
     <tr>
       <td>Start At</td>
       <td><input name="starttime" type="time" id="starttime" value="11:00"></td>
     </tr>
+
     <tr>
       <td>Finish at</td>
       <td><input name="finishtime" type="time" id="finishtime" value="13:11"></td>
     </tr>
+
     <tr>
       <td>&nbsp;</td>
       <td><div id="RadioButtons1">
@@ -57,19 +55,15 @@
         <input type="radio" name="RadioButtons1" id="Radio3">
         <label for="Radio3">Low</label></div></td>
     </tr>
+
     <tr>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
   </tbody>
 </table>
-
 </div>
 <script src="js/app.js"></script>
-<script type="text/javascript">
-$(function() {
 
-});
-</script>
 </body>
 </html>
