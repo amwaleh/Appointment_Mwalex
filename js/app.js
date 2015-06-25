@@ -1,5 +1,59 @@
+
+document.getElementById('data').style.display='none';
+
+
+
+
 var ref = new Firebase("https://mwaleh001.firebaseio.com/");
  highestPriority = 0;
+ 
+ 
+ 
+ var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById('appdate').value=today;
+
+
+	
+ref.child(today).orderByChild("priority").on("value", function (snapshot) {
+ ;
+ var div = document.getElementById('reminder');;
+ var firstnode = snapshot.val();
+ if(firstnode===null)alert('you ve Task for today');
+
+  div.innerHTML ='<div class="Events">';
+   var icons='';
+//gets the title of the task 
+for ( title in firstnode) {
+ div.innerHTML = div.innerHTML+ icons +'<div class="title">'+ title.toUpperCase() ;
+
+//gets propertis firstnod[title][pro]= value of property
+
+  for (pro in firstnode[title]){ 
+    var childtext = "\""+today +"\",\""+ title+"\"".toString();
+    icons="<a href='#' ><img id='edit' src='images/edit.png' onclick='editChildky(" + childtext +")';'><img id='edit' src='images/delete.png' onclick='removeChildky(" + childtext +")';'></a>"
+   div.innerHTML = div.innerHTML +'<div  class="property"><li>' + pro +'</li> <li> '+ firstnode[title][pro]+'</li></div>';
+	}
+  div.innerHTML = div.innerHTML +'</div>'
+}
+       
+  div.innerHTML = div.innerHTML +'</div>'
+});
+
+
+
 
 
 var setAppointment = function() {
@@ -12,23 +66,25 @@ var setAppointment = function() {
   var priority = $("#priority").val();
 			
 childref.child(title).on( "value", function (snapshot){
-  if(snapshot){
-    alert("the following event already exist choose unique title");
+  if(snapshot.val() !== null){
+    document.getElementById('warning-title').innerHTML="the following event already exist choose unique title";
     getAppointment();
   console.log (snapshot.val());
 }
 
 })
 
-/*childref.child(title).setWithPriority(priority, priority)	
 
+childref.child(title).setWithPriority(priority,priority)	
+	
  childref.child(title).set({
  start:start,
  tasks:tasks,
  title:title,
  finish:finish,
  priority:priority
- 	});*/
+ 	});
+	
 };
 //retrieve data using for specific date
 function getAppointment(){
@@ -148,3 +204,6 @@ console.log(updatenode);
 
 
 }
+function hideelement(obj){
+	obj.visibility='hidden'
+	}
