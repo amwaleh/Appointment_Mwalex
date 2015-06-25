@@ -3,13 +3,14 @@ body{
   background-color: #ccf;
 }
 .title{
-  background-color:CCF; 
- font-family: tahoma;
+  background-color:#CCF; 
+ font-family: Verdana;
   font-size: 1.7em;
 }
 .property{
 
 }
+
 .property li{
   float:left;
   width:200px;
@@ -17,29 +18,40 @@ body{
   border-bottom: 1px solid white;
   border-radius: 2px;box-shadow: 5px 5px 5px black;
 }
-.property li:hover{
+.property li: hover{
   
   border-radius: 5px;box-shadow: 10px 10px 5px black;
 }
+
 .property li:first-child{
   float:left;
   width:100px;
   background-color: #eee;
 }
+
 .Events{
-  font-family: tahoma, verdana;
+  border: 2px solid black;
+  font-family:  verdana;
   width:300px;
   background-color:#000;
   box-shadow: 10px 10px 10px black;
+  float:left;
 }
+
 #show{
   margin:40px 10px 10px;
   float:left;
  
 }
 
-
 .form{
+  font-family: Verdana;
   margin: 0 auto;
-  width:500px;
+  
+  width:400px;
+
+}
+
+#edit{
+    width:32px;
 }
