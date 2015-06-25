@@ -14,7 +14,7 @@
       <img id='img' src="https://www.firebase.com/images/logo.png"></img>
         <input type="button" name="button" id="button" value="save" onClick="setAppointment();">
 
-<table width="375" height="228" border="0">
+<table width="400" height="228" border="0" class="form">
  <caption>Things To do</caption>
 
   <tbody>
@@ -22,7 +22,7 @@
       <td >Date</td>
       <td >        
         <input id="appdate" name="appdate" min="31-12-2014" max="01-01-2025" type="date" value='2015-06-01'> 
-        <input type="button" name="button" id="button" value="check" onClick="getAppointment();"><table width="375" height="228" border="0">
+        <input type="button" name="button" id="button" value="check" onClick="getAppointment();">
       </td>
     </tr>
 
@@ -47,13 +47,15 @@
     </tr>
 
     <tr>
-      <td>&nbsp;</td>
-      <td><div id="RadioButtons1">
-        <input type="radio" name="RadioButtons1" id="Radio1">
-        <label for="Radio1">High</label><input type="radio" name="priority" id="Radio2">
-        moderate
-        <input type="radio" name="RadioButtons1" id="Radio3">
-        <label for="Radio3">Low</label></div></td>
+      <td>Priority</td>
+      <td>
+        <select id='priority'>
+          <option value='0'> High </option>
+          <option value='500'>  Normal </option>
+          <option value='1000'> Low</option>
+        </select>
+
+      </td>
     </tr>
 
     <tr>

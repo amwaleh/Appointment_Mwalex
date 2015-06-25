@@ -3,8 +3,8 @@ body{
   background-color: #ccf;
 }
 .title{
-  background-color:CCF; 
- font-family: tahoma;
+  background-color:#CCF; 
+ font-family: Verdana;
   font-size: 1.7em;
 }
 .property{
@@ -30,10 +30,11 @@ body{
 }
 
 .Events{
-  font-family: tahoma, verdana;
+  font-family:  verdana;
   width:300px;
   background-color:#000;
   box-shadow: 10px 10px 10px black;
+  float:left;
 }
 
 #show{
@@ -43,6 +44,9 @@ body{
 }
 
 .form{
+  font-family: Verdana;
   margin: 0 auto;
-  width:500px;
+  
+  width:400px;
+
 }
