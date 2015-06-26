@@ -117,7 +117,7 @@ for ( title in firstnod) {
 
 //gets propertis firstnod[title][pro]= value of property
 
-  for (pro in firstnod[title]){ 
+  for (pro in firstnod[title]) { 
    div.innerHTML = div.innerHTML + '<div  class="property"><li>' + pro +'</li> <li>'+ firstnod[title][pro] +'</li></div>';
   }
    div.innerHTML = div.innerHTML +'</div>'
@@ -132,7 +132,7 @@ for ( title in firstnod) {
 //check if appointment exist
 
 //
-function removeChildky(parent,child){
+function removeChildky(parent,child) {
   var childnode=parent +"/"+ child
   //childon=childon.replace('!','/').toString
   ref.child(childnode).remove();
@@ -144,12 +144,12 @@ var updatenode=''
 
 //retrieves data for editing
 
-function editChildky(parent,child){
-  var childnode=parent +"/"+ child
-  updatenode=childnode;
+function editChildky(parent,child) {
+   var childnode=parent +"/"+ child
+   updatenode=childnode;
    var table=document.getElementById('form');
-   ref.child(childnode).on("value", function (snapshot) {
-   var open ="<tr>";
+    ref.child(childnode).on("value", function (snapshot) {
+    var open ="<tr>";
     
     document.getElementById('appdate').value=parent;
     document.getElementById('title').value=child;
@@ -167,7 +167,7 @@ function editChildky(parent,child){
 }
 
 
-function updatechild(){
+function updatechild() {
   if(!updatenode) {
     alert('cannot alert')
     return;}
@@ -198,13 +198,13 @@ document.getElementById('data').reset();
 }
 
 	
-function checkTitle(){
+function checkTitle() {
  var title = $("#title").val();
  var parents = $("#appdate").val();
  var childref = ref.child(parents);//this is the parent node :Date
 childref.child(title).on( "value", function (snapshot){
 		
-if( document.getElementById('Btnupdate').style.display==='none'){
+if( document.getElementById('Btnupdate').style.display==='none') {
   if(snapshot.val() !== null){
     document.getElementById('warning-title').innerHTML="the following event already exist choose unique title";
     document.getElementById('button2').style.display='none';
