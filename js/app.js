@@ -31,13 +31,13 @@ ref.child(today).orderByChild("priority").on("value", function (snapshot) {
  ;
  var div = document.getElementById('reminder');;
  var firstnode = snapshot.val();
- if(firstnode===null)alert('you ve Task for today');
+ //if(firstnode!==null)return;;
 
-  div.innerHTML ='<div class="Events">';
+ div.innerHTML ='<div class="Events">';
    var icons='';
 //gets the title of the task 
 for ( title in firstnode) {
- div.innerHTML = div.innerHTML+ icons +'<div class="title">'+ title.toUpperCase() ;
+ div.innerHTML = div.innerHTML+ icons +'<div class="title"><h2>Tasks for Today</h2>'+ title.toUpperCase() ;
 
 //gets propertis firstnod[title][pro]= value of property
 
@@ -65,14 +65,6 @@ var setAppointment = function() {
   var finish = $("#finishtime").val();
   var priority = $("#priority").val();
 			
-childref.child(title).on( "value", function (snapshot){
-  if(snapshot.val() !== null){
-    document.getElementById('warning-title').innerHTML="the following event already exist choose unique title";
-    getAppointment();
-  console.log (snapshot.val());
-}
-
-})
 
 
 childref.child(title).setWithPriority(priority,priority)	
@@ -86,6 +78,8 @@ childref.child(title).setWithPriority(priority,priority)
  	});
 	
 };
+
+
 //retrieve data using for specific date
 function getAppointment(){
 ref.orderByPriority().on("value", function (snapshot) {
@@ -155,6 +149,9 @@ function removeChildky(parent,child){
 }
 
 var updatenode=''
+
+//retrieves data for editing
+
 function editChildky(parent,child){
   var childnode=parent +"/"+ child
  updatenode=childnode;
@@ -173,8 +170,10 @@ function editChildky(parent,child){
 
   })
 
-  
- 
+document.getElementById('addtask').style.display='none';
+  document.getElementById('Btnupdate').style.display='block';
+ document.getElementById('button2').style.display='none';
+document.getElementById('data').style.display='block';
 }
 
 
@@ -201,9 +200,36 @@ console.log(updatenode);
     priority:priority
   });
 
+document.getElementById('Btnupdate').style.display='none';
+ document.getElementById('button2').style.display='block';
+document.getElementById('addtask').style.display='block';
+document.getElementById('data').style.display='none';
+document.getElementById('data').reset();
+}
 
+	
+	
+	function checkTitle(){
+ var title = $("#title").val();
+ var parents = $("#appdate").val();
+ var childref = ref.child(parents);//this is the parent node :Date
+	childref.child(title).on( "value", function (snapshot){
+		
+		if( document.getElementById('Btnupdate').style.display==='none'){
+  if(snapshot.val() !== null){
+    document.getElementById('warning-title').innerHTML="the following event already exist choose unique title";
+	 document.getElementById('button2').style.display='none';
+	
+   
+ 
+}
+else {
+	 document.getElementById('warning-title').innerHTML=''
+	document.getElementById('button2').style.display='block';
+}
+	}
+	})
 
 }
-function hideelement(obj){
-	obj.visibility='hidden'
-	}
+
+	

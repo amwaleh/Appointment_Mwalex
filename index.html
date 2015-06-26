@@ -7,55 +7,54 @@
      <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
 
       
+<title>Todo Application</title>
 </head>
 <body >
 <div class="header" >
-
+<h1>Do-It App</h1>
 </div>
 
     <div  id="contents">
      <div id='reminder' class="reminder"></div>
    <div class='sidebar' id="show">  
      </div>
-     
-     
-      <img id='img' src="https://www.firebase.com/images/logo.png"></img>
+   </img>
       <div   class="form" id='form'>
         Date       
         <input id="appdate" name="appdate" min="31-12-2014" max="01-01-2025" type="date" value='2015-06-01'>
         <input name="button" type="button" class="myButton" id="button" onClick="getAppointment();" value="check">
-        <input name="button" type="button" class="myButton" id="button" onClick="updatechild();" value="update" style="display:none">
+        
       
         <input   style="display:none" name="button3" type="button" class="myButton" id="button3" onClick="getAllAppointment();" value="check All">
-        <input name="button4" type="button" class="myButton" id="button4" onClick="javascript:this.style.display='none';data.style.display='block' " value="Add Task">
+        <input name="button4" type="button" class="myButton" id="addtask" onClick="javascript:this.style.display='none';data.style.display='block' " value="Add Task">
       </div>
       
       <form id='data' onSubmit="setAppointment();button4.style.display='block'; ">
  <table width="279" height="252"   class="form" id='form'>  <tbody>  <tr>
-      <td width="71">Title</td>
+      <td width="71"><strong>Title</strong></td>
       <td >
-      <input name="title" type="input" id="title" Required>
+      <input onBlur="checkTitle()" name="title" type="input" id="title" Required>
       <br><span id='warning-title'></span>
       </td>
     </tr>
 
     <tr>
-      <td>Task </td>
+      <td><strong>Task </strong></td>
       <td><TextArea cols='30' rows='5' id="task" name="task" value='monday' Required></textarea></td>
     </tr>
 
     <tr>
-      <td>Start At</td>
-      <td><input name="starttime" type="time" id="starttime" Required></td>
+      <td><strong>Start At</strong></td>
+      <td><input name="starttime" type="time" Required id="starttime" value="00:00:00"></td>
     </tr>
 
     <tr>
-      <td>Finish at</td>
-      <td><input name="finishtime" type="time" id="finishtime" Required></td>
+      <td><strong>Finish at</strong></td>
+      <td><input name="finishtime" type="time" Required id="finishtime" value="00:00"></td>
     </tr>
 
     <tr>
-      <td>Priority</td>
+      <td><strong>Priority</strong></td>
       <td>
         <select id='priority'>
           <option value='0'> High </option>
@@ -68,7 +67,7 @@
 
     <tr>
       <td>&nbsp;</td>
-      <td><input name="button2" type="submit" class="myButton" id="button2"  value="save" onBlur="hideelement(this)"></td>
+      <td><input name="button" type="button" class="myButton" id="Btnupdate" onClick="updatechild();" value="update" style="display:none"><input name="button2" type="submit" class="myButton" id="button2"  value="save" onBlur="hideelement(this)"></td>
     </tr>
   </tbody>
 </table>
