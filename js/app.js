@@ -28,21 +28,21 @@ ref.child(today).orderByChild("priority").on("value", function (snapshot) {
  var firstnode = snapshot.val();
  //if(firstnode!==null)return;;
 
- div.innerHTML ='<div class="Events">';
+ div.innerHTML ='';
    var icons='';
 //gets the title of the task 
 for ( title in firstnode) {
- div.innerHTML = div.innerHTML+ icons +'<div class="title"><h2>Tasks for Today</h2>'+ title.toUpperCase() ;
+ div.innerHTML = div.innerHTML+ icons +'<h2>Tasks for Today</h2><ul class="list-group">'+ title.toUpperCase() ;
 
 //gets propertis firstnod[title][pro]= value of property
 
   for (pro in firstnode[title]){
   	
     var childtext = "\""+today +"\",\""+ title+"\"".toString();
-    icons="<a href='#' ><img id='edit' src='images/edit.png' onclick='editChildky(" + childtext +")';'><img id='edit' src='images/delete.png' onclick='removeChildky(" + childtext +")';'></a>"
-    div.innerHTML = div.innerHTML +'<div  class="property"><li>' + pro +'</li> <li> '+ firstnode[title][pro]+'</li></div>';
+   var icons="<a href='#' ><img id='edit' src='images/edit.png' class='img-circle' onclick='editChildky(" + childtext +")';'><img id='edit' src='images/delete.png' onclick='removeChildky(" + childtext +")';'></a>"
+    div.innerHTML = div.innerHTML +'<li class="list-group-item-success">' + pro +'  ::'+ firstnode[title][pro]+'</li>';
 	}
-    div.innerHTML = div.innerHTML +'</div>'
+    div.innerHTML = div.innerHTML +'</ul></div>'
     }
        
     div.innerHTML = div.innerHTML +'</div>'
@@ -76,27 +76,27 @@ childref.child(title).setWithPriority(priority,priority)
 function getAppointment(){
 ref.orderByPriority().on("value", function (snapshot) {
  var adate = document.getElementById("appdate").value;
- var div = document.getElementById('show');;
+ var div = document.getElementById('reminder');;
  var a = snapshot.val();
  var firstnod = a[adate]; 
 
-div.innerHTML ='<div class="Events">';
+div.innerHTML ='' ;
 var icons='';
 //gets the title of the task 
 for ( title in firstnod) {
- div.innerHTML = div.innerHTML +'<div class="title">'+ title.toUpperCase();
+ div.innerHTML = div.innerHTML +'<div class="well list-group btn-primary">'+ title.toUpperCase();
 
 //gets propertis firstnod[title][pro]= value of property
 
   for (pro in firstnod[title]){ 
     var childtext = "\""+adate +"\",\""+ title+"\"".toString();
     icons="<a ><img id='edit' src='images/edit.png' onclick='editChildky(" + childtext +")';'><img id='edit' src='images/delete.png' onclick='removeChildky(" + childtext +")';'></a>"
-    div.innerHTML = div.innerHTML +'<div  class="property"><li>' + pro +'</li> <li> '+ firstnod[title][pro] +'</li></div>';
+    div.innerHTML = div.innerHTML +'<li ="list-group-item-success">' + pro +'\t\t -> \t \t'+ firstnod[title][pro] +'</li>' ;
 	}
     div.innerHTML = div.innerHTML + icons+'</div>'
     }
        
-    div.innerHTML = div.innerHTML +'</div>'
+    
    });
   }
 
